@@ -1,0 +1,35 @@
+[project]
+name = "transient-memory-voice-assistant"
+version = "0.1.0"
+description = "A macOS-first voice capture assistant for short-term cognitive continuity."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "azure-identity>=1.16.0",
+    "openai>=1.30.0",
+    "pynput>=1.7.6",
+    "python-dotenv>=1.0.1",
+    "sounddevice>=0.4.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+]
+
+[project.scripts]
+thoughtthread = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
